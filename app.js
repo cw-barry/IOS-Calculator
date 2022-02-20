@@ -21,6 +21,9 @@ function calculate() {
 // event Listener'ı butonlara değil butonların içinde bulunduğu container'a atıyorum.
 // bkz event propogation, event bubbling
 buttons.addEventListener('click', (event) => {
+  // tuşlar dışında bir yere tıklandıysa hiç bir işlem yapmadan işlemi sonlandırıyorum
+  if (!event.target.classList.contains('button')) return;
+
   let primaryValue = primaryDisplay.innerHTML;
   let buttonValue = event.target.innerHTML;
 
